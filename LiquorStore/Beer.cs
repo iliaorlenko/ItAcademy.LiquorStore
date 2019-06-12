@@ -17,11 +17,11 @@ namespace LiquorStore
         {
             this.Type = Type;
             this.Filtering = Filtering;
-            BeerId++;
+            NumberOfBeers++;
         }
 
         // Variables to represent beverage data
-        public int BeerId;
+        private static int NumberOfBeers;
         public BeerType Type { get; set; }
         public FilteringType Filtering { get; set; }
         
@@ -31,9 +31,13 @@ namespace LiquorStore
             // Call base class methdod for displaying basic information
             base.ShowInfo();
             Console.WriteLine("\n{0} specific information:\n", Title);
-            Console.WriteLine("Beer ID: {0}", BeerId);
             Console.WriteLine("Beer Type: {0}", Type);
             Console.WriteLine("Filtering Type: {0}", Filtering);
+        }
+
+        public static void ShowNumberOfBeers()
+        {
+            Console.WriteLine("Total number of beverages: {0}", NumberOfBeers);
         }
     }
 

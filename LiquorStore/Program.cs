@@ -7,6 +7,7 @@ namespace LiquorStore
     {
         static void Main(string[] args)
         {
+
             // Start with creating empty object...
             Beer A10 = new Beer();
             // ...and then assign all the date to its variables as a separate code
@@ -57,14 +58,26 @@ namespace LiquorStore
                 Filtering = FilteringType.Filtered
             };
 
-            // Show info of Beer object including Beverage base
-            A10.ShowInfo();            
+            // Show info of Beer object
+            Guinness.ShowInfo();
+
+            // Add a couple of other derived class's objects
+            Vodka vodka = new Vodka();
+            Vodka vodka2 = new Vodka();
+            Console.WriteLine("\nA couple of Vodka beverages has been added");
+
+            //Show total number of objects of Beverage type
+            Beverage.ShowNumberOfBeverages();
+
+            //Show total number of objects of Beer type
+            Beer.ShowNumberOfBeers();
+            Console.WriteLine();
 
             // Compare whether one beverage contains more packaging options than other
-            Console.WriteLine((Guinness < Koronet).ToString());
-            Console.WriteLine((Guinness > Koronet).ToString());
-            Console.WriteLine((Guinness <= Koronet).ToString());
-            Console.WriteLine((Guinness >= Koronet).ToString());
+            Console.WriteLine("Guinness has less packaging types than Koronet: " + (Guinness < Koronet).ToString());
+            Console.WriteLine("Guinness has more packaging types than Koronet: " + (Guinness > Koronet).ToString());
+            Console.WriteLine("Guinness has less packaging types than Koronet or equal: " + (Guinness <= Koronet).ToString());
+            Console.WriteLine("Guinness has more packaging types than Koronet or equal: " + (Guinness >= Koronet).ToString());
 
             // Make console wait
             Console.ReadKey();

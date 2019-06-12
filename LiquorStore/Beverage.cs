@@ -18,11 +18,11 @@ namespace LiquorStore
             Manufacturer = manufacturer;
             alcoholContentClass = AlcoholContentClass;
             PackAndVolume = packAndVolume;
-            BeverageId++;
+            NumberOfBeverages++;
         }
 
         // Variables to represent beverage data
-        public int BeverageId;
+        private static int NumberOfBeverages;
         public string Title { get; set; }
         public string Manufacturer { get; set; }
         public AlcoholContent AlcoholContentClass { get; set; }
@@ -34,7 +34,6 @@ namespace LiquorStore
         public virtual void ShowInfo()
         {
             Console.WriteLine("{0} {1} basic information:\n", Title, GetType().Name);
-            Console.WriteLine("Beverage ID: {0}", BeverageId.ToString());
             Console.WriteLine("Manufacturer: {0}", Manufacturer);
             Console.WriteLine("Alcohol Content Class: {0}", AlcoholContentClass);
             ShowAllPackagingInfo(PackAndVolume);
@@ -66,6 +65,11 @@ namespace LiquorStore
                     Console.WriteLine(i++ + ". {0}", unit.Key);
             }
             Console.WriteLine();
+        }
+
+        public static void ShowNumberOfBeverages()
+        {
+            Console.WriteLine("Total number of beverages: {0}", NumberOfBeverages);
         }
         #endregion
 
